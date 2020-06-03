@@ -1,5 +1,5 @@
 ### Main classe
 
-This is the main class;
+The main class;
 
-        ```Janela.java
+        `Janela.java
