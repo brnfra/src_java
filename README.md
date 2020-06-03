@@ -1,2 +1,4 @@
-# Java course Experiment
-Try java and exercise book instructions
+# Java course Exercises
+
+Apply java and exercise book instructions.
+Some apps with classes for exercises and practice.
