@@ -1,17 +1,29 @@
 /*
  * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
+ * To change this template file, choose Apache Netbenas Tools | Templates
  * and open the template in the editor.
  */
-package cap7_inheritance;
+package Shapes2;
+
+
 
 /**
  *
- * @author devlab
+ * @author  brnfra
  */
-public class Shape3 {
-        Triangle t1 = new Triangle("filled", 4.0, 4.0);
-        Triangle t2 = new Triangle("outlined", 8.0, 12.0);
+public class Shapes2 {
+
+    /**
+     * @param args the command line arguments
+     */
+    //lembrar de separar as funções main por pacote
+    public static void main(String[] args) {
+        // TODO code application logic here
+        //observe!
+        //aloca espaço para variavel do tipo Triangle 
+        //associa o obj a classe Triangle()
+        Triangle t1 = new Triangle();
+        Triangle t2 = new Triangle();
         /*
         Observe!
             Cada construtor é responsável por criar
@@ -27,22 +39,24 @@ public class Shape3 {
         *Objetos da super não sabem da existencia de
         objetos das classes filhas
         */
-        /*anterior
+        
+          /*anterior
         t1.width = 4.0;
         t1.height = 4.0;
         t1.style = "filled";
         */
-       //  t1.setWidth(4.0);
-      //  t1.setHeight(4.0);
-      //  t1.style="filled";
+         t1.setWidth(4.0);
+        t1.setHeight(4.0);
+        t1.style="filled";
          /*anterior
         t2.width = 8.0;
         t2.height = 12.0;
         t2.style = "outlined";
         */
-      //   t2.setWidth(8.0);
-      //  t2.setHeight(12.0);
-      //  t2.style = "outlined";
+         t2.setWidth(8.0);
+        t2.setHeight(12.0);
+        t2.style = "outlined";
+        
          
         System.out.println("Info for t1: ");
         t1.showStyle();
@@ -55,4 +69,6 @@ public class Shape3 {
         t2.showDim();
         System.out.println("Area is " + t2.area());
         
+    }
+    
 }

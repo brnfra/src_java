@@ -3,13 +3,14 @@
  * To change this template file, choose Apache Netbenas Tools | Templates
  * and open the template in the editor.
  */
-package cap7_inheritance;
+package Shapes;
+
 
 /**
  *
  * @author  brnfra
  */
-public class Cap7_inheritance {
+public class Shapes {
 
     /**
      * @param args the command line arguments
@@ -37,22 +38,15 @@ public class Cap7_inheritance {
         *Objetos da super não sabem da existencia de
         objetos das classes filhas
         */
-        /*anterior
+       
         t1.width = 4.0;
         t1.height = 4.0;
         t1.style = "filled";
-        */
-         t1.setWidth(4.0);
-        t1.setHeight(4.0);
-        t1.style="filled";
-         /*anterior
+                
         t2.width = 8.0;
         t2.height = 12.0;
         t2.style = "outlined";
-        */
-         t2.setWidth(8.0);
-        t2.setHeight(12.0);
-        t2.style = "outlined";
+        
          
         System.out.println("Info for t1: ");
         t1.showStyle();

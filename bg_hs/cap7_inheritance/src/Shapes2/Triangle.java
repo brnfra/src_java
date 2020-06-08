@@ -3,7 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package cap7_inheritance;
+package Shapes2;
+
+
 
 /**
  *
@@ -13,14 +15,7 @@ package cap7_inheritance;
 public class Triangle extends TwoDShape {
     String style;
     
-    //criando construtor
-    Triangle(String s, double w, double h){
-        setWidth(w);
-        setHeight(h);//inicializa a parte do objeto 
-        //referente a superclasse herdada
-        
-        style = s;
-    }
+  
     
     double area(){
         //observe!
