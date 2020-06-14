@@ -23,9 +23,9 @@ public class Shapes6 {
         //observe!
         //aloca espaço para variavel do tipo Triangle 
         //associa o obj a classe Triangle()
-          Triangle t1 = new Triangle();
-        Triangle t2 = new Triangle("outlined", 8.0, 12.0);
-        Triangle t3 = new Triangle( 4.0);
+        ColorTriangle t1 = new ColorTriangle("Blue", "outlined", 8.0, 12.0);
+        ColorTriangle t2 = new ColorTriangle("Red","filled", 2.0, 2.0);
+      
         /*
         Observe!
             Cada construtor é responsável por criar
@@ -47,27 +47,31 @@ public class Shapes6 {
         t1.style = "filled";
         */
         
-        t1 = t2;
+       
         
                 
         System.out.println("Info for t1: ");
         t1.showStyle();
         t1.showDim();
+        t1.showColor();
            System.out.println("Area is " + t1.area());
            
         System.out.println();
         
         System.out.println("Info for t2: ");
         t2.showStyle();
+        /*
+        Observe!
+        O metodo showDim pertence a super classe, aqui, quem chama é a classe 
+        herdada
+        */
         t2.showDim();
+          t2.showColor();
         System.out.println("Area is " + t2.area());
         
          System.out.println();
         
-        System.out.println("Info for t3: ");
-        t3.showStyle();
-        t3.showDim();
-        System.out.println("Area is " + t3.area());
+       
         
     }
     
