@@ -1,50 +1,10 @@
 package com.brunofranco.tictactoe;
 
-
-
-import java.awt.Color;
-import java.awt.Component;
-import java.awt.EventQueue;
-import java.awt.FlowLayout;
-
-import javax.swing.JFrame;
-import javax.swing.Action;
-import javax.swing.ButtonGroup;
-import javax.swing.GroupLayout;
-import javax.swing.GroupLayout.Alignment;
-import javax.swing.JSeparator;
-import javax.swing.SwingConstants;
-
-
-import javax.swing.LayoutStyle.ComponentPlacement;
-import javax.swing.JButton;
-import java.awt.Label;
-import java.awt.Window;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
-import java.awt.Font;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
-import java.beans.PropertyChangeListener;
-import java.util.Scanner;
-
-import javax.swing.JLabel;
-import javax.swing.JMenuBar;
-import javax.swing.JMenuItem;
-import javax.swing.JOptionPane;
-import javax.swing.JRadioButton;
-import javax.swing.JMenu;
-import javax.swing.event.MenuKeyListener;
-
-
-
+import javax.swing.*;
 import javax.swing.event.MenuKeyEvent;
-import javax.swing.JCheckBoxMenuItem;
-import javax.swing.JRadioButtonMenuItem;
-import java.awt.Window.Type;
-import java.awt.event.KeyAdapter;
-import java.awt.event.KeyEvent;
+import javax.swing.event.MenuKeyListener;
+import java.awt.*;
+import java.awt.event.*;
 
 public class Janela {
 
@@ -68,13 +28,15 @@ public class Janela {
 		Tabuleiro tab =new Tabuleiro();
 		Jogador jogador = new Jogador();
 		Computador comp = new Computador();
-			setTab(tab);
+		setTab(tab);
 		setComputador(comp);
-		
 		setVez(1);
-	
-		
-		/**********************************************************/
+		//var usada para setar vez
+		int set=0;
+		int estado = 0;//0-jogo continua;
+		moves=0;
+
+		/* ******************************************************** */
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -85,27 +47,21 @@ public class Janela {
 				}
 			}
 		});
-		
-		
-		
-		
-		
-		/**********************************************************/
-		//var usada para setar vez
-                int set=0;
+
+		/* ******************************************************** */
+
 		  /*
 		*setVez(first.getOpcao());
 		*
 		*estado=1- vitoria jogador humano;-1- vitoria jogador computador;
 		*estado=2- empate
 		*/		
-		int estado = 0;//0-jogo continua;
-              
+
 		tab.inicializar();//inicializa tabuleiro
-		//tab.visualizar();//exibe estado atual do tabuleiro no jogo
-			moves=0;
+							//tab.visualizar();//exibe estado atual do tabuleiro no jogo
+
 		while(estado==0 ) {// situa��o em tabuleiro; 0-jogo nao acabou; 1-jogo com humano vencendo; 
-			//2-computador vence; 3- empate com fim de jogo
+							//2-computador vence; 3- empate com fim de jogo
 			
 		if(moves==0) {
 			set=getVez();
@@ -115,13 +71,10 @@ public class Janela {
 					if(set==1) { //Jogador Humano
 						//pos=jogador.getJogada();
 						setJogada(0);
-					//	System.out.print(jogada);
+
 					    Jogador.setJogada(jogada);
 						Jogador.jogar(1,jogada,getTab());
-						//tab.visualizar();
-						
-						//System.out.print("estado");
-						//System.out.println(estado);
+
 						estado=tab.situacao();
 							if(estado==1 || estado==2) {
 								mostraVencedor(estado);
@@ -140,7 +93,7 @@ public class Janela {
 					
 						if(	set==-1) {//Jogador virtual
 							setJogada(0);
-							//System.out.println("Jogada Computador");
+
 							//pos=comp.jogar(tab);//jogada depende do retorno da classe e da opcao
 							
 							//comp=getComputador();
@@ -165,7 +118,7 @@ public class Janela {
 						estado=tab.situacao();
 						if(estado==2) {
 							mostraVencedor(estado);
-							//System.out.println("Jogo Empatado! ");
+
 							tab=newGame(tab);
 							estado=0;
 							set=1;
@@ -174,14 +127,10 @@ public class Janela {
 					
 					
 					}//laço while
-					
-			
-				
+
 		
 		}//la�o estado//newGame
-	
-	
-	
+
 	//posicao que joga
 	public static void setJogada(int pos) {
 		jogada=pos;
@@ -190,15 +139,12 @@ public class Janela {
 		return jogada;
 	}
 	private static void setVez(int quemJoga ) {
-	
 		vez=quemJoga;
 	}
 	public static int getVez() {
 		return vez;
 	}
-	
-	
-	 
+
 		//obter tabela de posições
 	 public static Tabuleiro getTab() {
 		 return tab;
@@ -207,8 +153,7 @@ public class Janela {
 	 public static void setTab(Tabuleiro tabuleiro) {
  		 tab=tabuleiro;
 	 	}
-	
-	 
+
 	//obter obj computador criado
 	 	 public static Computador getComputador() {
 	 		 return cpu;
@@ -216,22 +161,19 @@ public class Janela {
 	 	 public static void setComputador(Computador computador) {
 	 		 cpu=computador;
 		 	}
-	 	 
-	 	 
+
 	 	//construtor para receber o  obj jogador
-		 public void setJogador(Jogador jogador) {
+	public void setJogador(Jogador jogador) {
 			
 			 this.player=jogador;
 		 }
 		 
 		//obter jogador computador criado
-		 private Jogador getJogador() {
+	private Jogador getJogador() {
 				
 			 return this.player;
 		}	 
-		 
-		
-	 	 
+
 	/**
 	 * Create the application.
 	 */
@@ -323,23 +265,19 @@ public class Janela {
 		label9.setHorizontalAlignment(SwingConstants.CENTER);
 		label9.setBounds(352, 254, 100, 68);
 		frmTictactoe.getContentPane().add(label9);
-		
-		
+
 		JSeparator separator_2_1 = new JSeparator();
 		separator_2_1.setOrientation(SwingConstants.VERTICAL);
 		separator_2_1.setBounds(345, 82, 2, 240);
 		frmTictactoe.getContentPane().add(separator_2_1);
-		
-		
-					
-					
+
 		JButton btn1 = new JButton("");
 		btn1.addMouseListener(new MouseAdapter() {
 	
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				jogada=1;
-				  Jogador.setJogada(jogada);
+				Jogador.setJogada(jogada);
 				btn1.setVisible(false);
 				label1.setForeground(Color.blue);
 				label1.setText("X");
@@ -473,7 +411,7 @@ public class Janela {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				jogada=9;
-				  Jogador.setJogada(jogada);
+				Jogador.setJogada(jogada);
 				btn9.setVisible(false);
 				label9.setForeground(Color.blue);
 				label9.setText("X");
@@ -536,7 +474,7 @@ public class Janela {
 			public void menuKeyTyped(MenuKeyEvent arg0) {
 			}
 		});
-			menuI1.addMouseListener(new MouseAdapter() {
+		menuI1.addMouseListener(new MouseAdapter() {
 			
 			@Override
 			public void mousePressed(MouseEvent e) {
@@ -571,27 +509,19 @@ public class Janela {
 		JRadioButtonMenuItem inicioBlue = new JRadioButtonMenuItem("Blue",true);
 		inicioBlue.setForeground(Color.BLUE);
 		menuI2.add(inicioBlue);
-		inicioBlue.addActionListener(new ActionListener() {
-			
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				
-				setVez(1);
-				JOptionPane.showMessageDialog(null, "Player BLUE Start in the next game...","Info", 1);
-			}
+		inicioBlue.addActionListener(e -> {
+
+			setVez(1);
+			JOptionPane.showMessageDialog(null, "Player BLUE Start in the next game...","Info", 1);
 		});
 		
 		JRadioButtonMenuItem inicioRed = new JRadioButtonMenuItem("Red");
 		inicioRed.setForeground(Color.RED);
 		menuI2.add(inicioRed);
-		inicioRed.addActionListener(new ActionListener() {
-			
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				
-				setVez(-1);
-				JOptionPane.showMessageDialog(null, "Player RED Start in the next game...","Info", 1);
-			}
+		inicioRed.addActionListener(e -> {
+
+			setVez(-1);
+			JOptionPane.showMessageDialog(null, "Player RED Start in the next game...","Info", JOptionPane.INFORMATION_MESSAGE);
 		});
 		//grupo1
 		ButtonGroup grupo1 = new ButtonGroup();
@@ -687,10 +617,9 @@ public class Janela {
 			}
 		});
 		menuI4.add(level2);
-		
-		
+
 		JRadioButtonMenuItem level3 = new JRadioButtonMenuItem("Level 3 (Hard)");
-	level3.addMenuKeyListener(new MenuKeyListener() {
+	    level3.addMenuKeyListener(new MenuKeyListener() {
 			
 			@Override
 			public void menuKeyTyped(MenuKeyEvent e) {
@@ -724,8 +653,7 @@ public class Janela {
 			}
 		});
 		menuI4.add(level3);
-		
-		
+
 		ButtonGroup grupo2 = new ButtonGroup();
 		grupo2.add(level1);
 		grupo2.add(level2);
@@ -760,7 +688,7 @@ public class Janela {
 						" with the goal of getting k of their own color in a row. Tic-tac-toe is the (3,3,3)-game. Harary's generalized tic-tac-toe is \n" + 
 						"an even broader generalization of tic-tac-toe. It can also be generalized as a nd game. Tic-tac-toe is the game where n \n" + 
 						"equals 3 and d equals 2. If played optimally by both players, the game always ends in a draw, making tic-tac-toe a futile game.\n" + 
-						"(Font: https://en.wikipedia.org/wiki/Tic-tac-toe) ","Help", 1);
+						"(Font: https://en.wikipedia.org/wiki/Tic-tac-toe) ","Help", JOptionPane.INFORMATION_MESSAGE);
 			}
 		});
 		help.addKeyListener(new KeyAdapter() {
@@ -778,7 +706,7 @@ public class Janela {
 						" with the goal of getting k of their own color in a row. Tic-tac-toe is the (3,3,3)-game. Harary's generalized tic-tac-toe is \n" + 
 						"an even broader generalization of tic-tac-toe. It can also be generalized as a nd game. Tic-tac-toe is the game where n \n" + 
 						"equals 3 and d equals 2. If played optimally by both players, the game always ends in a draw, making tic-tac-toe a futile game.\n" + 
-						"(Font: https://en.wikipedia.org/wiki/Tic-tac-toe) ","Help", 1);
+						"(Font: https://en.wikipedia.org/wiki/Tic-tac-toe) ","Help", JOptionPane.INFORMATION_MESSAGE);
 			}
 		});
 		helpMenu.add(help);
@@ -787,7 +715,7 @@ public class Janela {
 		about.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mousePressed(MouseEvent e) {
-				JOptionPane.showMessageDialog(null, "Game Tic-Tac-Toe\nAuthor: Bruno Franco. 2020","About", 1);
+				JOptionPane.showMessageDialog(null, "Game Tic-Tac-Toe\nAuthor: Bruno Franco. 2020","About", JOptionPane.INFORMATION_MESSAGE);
 			}
 		});
 		about.addKeyListener(new KeyAdapter() {
@@ -918,10 +846,7 @@ public class Janela {
 	private static JLabel getLabel9() {
 		return label9;
 	}
-	 
-	
-	
-	
+
 	//inicia uma nova partida
 	public static Tabuleiro newGame(Tabuleiro tab ) {
 		
@@ -955,9 +880,7 @@ public class Janela {
 		moves=0;
 		return tab;
 	}
-	
-	
-	
+
 	//exibe popup com info
 	public static void mostraVencedor(int estado) {
 		switch(estado) {
@@ -975,87 +898,89 @@ public class Janela {
 	
 	//marca circulo no tabuleiro
 	public static void cpuJoga(int pos) {
-		int posicao=1;
-		posicao=pos;
+		int position=1;
+		position=pos;
 				
-		JButton btnx = new JButton();
-		JLabel labelx = new JLabel();
-		
-		//cpu vai jogar O em 1? defina uma forma do cpu jogar corretamente...
-		//exibir a jogada do cpu
-		
-	    switch(posicao) {
+		JButton btnX;
+		JLabel labelX;
+
+		/*
+		 TODO cpu vai jogar O em 1? defina uma forma do cpu jogar corretamente...
+		 exibir a jogada do cpu
+		*/
+
+		switch(position) {
 	    case 1:
 	    	    	
-	    	btnx= getButton1();
-			labelx=getLabel1();
-			btnx.setVisible(false);
-			labelx.setForeground(Color.red);
-			labelx.setText("O");
+	    	btnX = getButton1();
+			labelX =getLabel1();
+			btnX.setVisible(false);
+			labelX.setForeground(Color.red);
+			labelX.setText("O");
 	    	break;
 	    case 2:
 	    	
-	    	btnx= getButton2();
-			labelx=getLabel2();
-			btnx.setVisible(false);
-			labelx.setForeground(Color.red);
-			labelx.setText("O");
+	    	btnX = getButton2();
+			labelX =getLabel2();
+			btnX.setVisible(false);
+			labelX.setForeground(Color.red);
+			labelX.setText("O");
 	    	break;
 	    case 3:
 	    	
-	    	btnx= getButton3();
-			labelx=getLabel3();
+	    	btnX = getButton3();
+			labelX =getLabel3();
 			btn3.setVisible(false);
-			labelx.setForeground(Color.red);
+			labelX.setForeground(Color.red);
 			label3.setText("O");
 	    	break;
 	    case 4:
 	    	
-	    	btnx= getButton4();
-			labelx=getLabel4();
+	    	btnX = getButton4();
+			labelX =getLabel4();
 			btn4.setVisible(false);
-			labelx.setForeground(Color.red);
+			labelX.setForeground(Color.red);
 			label4.setText("O");
 	    	break;
 	    case 5:
 	    	
-	    	btnx= getButton5();
-			labelx=getLabel5();
-			btnx.setVisible(false);
-			labelx.setForeground(Color.red);
-			labelx.setText("O");
+	    	btnX = getButton5();
+			labelX =getLabel5();
+			btnX.setVisible(false);
+			labelX.setForeground(Color.red);
+			labelX.setText("O");
 	    	break;
 	    case 6:
 	    	
-	    	btnx= getButton6();
-			labelx=getLabel6();
-			btnx.setVisible(false);
-			labelx.setForeground(Color.red);
-			labelx.setText("O");
+	    	btnX = getButton6();
+			labelX =getLabel6();
+			btnX.setVisible(false);
+			labelX.setForeground(Color.red);
+			labelX.setText("O");
 	    	break;
 	    case 7:
 	    	
-	    	btnx= getButton7();
-			labelx=getLabel7();
-			btnx.setVisible(false);
-			labelx.setForeground(Color.red);
-			labelx.setText("O");
+	    	btnX = getButton7();
+			labelX =getLabel7();
+			btnX.setVisible(false);
+			labelX.setForeground(Color.red);
+			labelX.setText("O");
 	    	break;
 	    case 8:
 	    	
-	    	btnx= getButton8();
-			labelx=getLabel8();
-			btnx.setVisible(false);
-			labelx.setForeground(Color.red);
-			labelx.setText("O");
+	    	btnX = getButton8();
+			labelX =getLabel8();
+			btnX.setVisible(false);
+			labelX.setForeground(Color.red);
+			labelX.setText("O");
 	    	break;
 	    case 9:
 	    	
-	    	btnx= getButton9();
-			labelx=getLabel9();
-			btnx.setVisible(false);
-			labelx.setForeground(Color.red);
-			labelx.setText("O");
+	    	btnX = getButton9();
+			labelX =getLabel9();
+			btnX.setVisible(false);
+			labelX.setForeground(Color.red);
+			labelX.setText("O");
 	    	break;
 	    
 	    	    }

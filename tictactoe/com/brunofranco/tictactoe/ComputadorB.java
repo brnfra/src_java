@@ -45,8 +45,8 @@ public class ComputadorB extends Computador{
 	
 			//jogada docomputador qual nivel???
 			posicao=1+gerador.nextInt(9);//randomicos entre 1 e 9
-			System.out.print("posicao:");
-			System.out.println(posicao);
+			//System.out.print("posicao:");
+			//System.out.println(posicao);
 	
 				//jogada docomputador qual nivel???
 				posicao=1+gerador.nextInt(9);//randomicos entre 1 e 9
