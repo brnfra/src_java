@@ -56,7 +56,7 @@ public class DesafioC {
         //TIPOS DE ENTRADAS
         //BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         //BufferedReader br = new BufferedReader(new FileReader("src/com/ed/exercises/input.in"));
-        BufferedReader br = new BufferedReader(new FileReader("/home/devlab/documents/projects/git/"+
+        BufferedReader br = new BufferedReader(new FileReader("~/documents/projects/git/"+
         "src_java/desafios_dio/dio/brnfra/sort/inputs_c.txt"));
        //le stream de entrada
 
