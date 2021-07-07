@@ -1,5 +1,7 @@
-### Main classe
+# Simple tic-tac-toe game 
 
-The main class;
+A simple TicTacToe game for java using Swing API
 
-        `Janela.java
+
+by brnfra
+

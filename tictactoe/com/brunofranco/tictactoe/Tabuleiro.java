@@ -2,7 +2,7 @@
 Author: Bruno do Nascimento Franco
 2020
 */
-package com.brunofranco.tictactoe;
+package tictactoe.com.brunofranco.tictactoe;
 
 public class Tabuleiro {
 	public int mat[][] = new int[3][3];

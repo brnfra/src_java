@@ -2,7 +2,7 @@
 Author: Bruno do Nascimento Franco
 2020
 */
-package com.brunofranco.tictactoe;
+package tictactoe.com.brunofranco.tictactoe;
 import java.util.Scanner;
 //import com.brunofranco.tictactoe.Janela;
 

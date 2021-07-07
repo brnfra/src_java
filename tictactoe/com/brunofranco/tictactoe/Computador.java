@@ -2,7 +2,7 @@
 Author: Bruno do Nascimento Franco
 2020
 */
-package com.brunofranco.tictactoe;
+package tictactoe.com.brunofranco.tictactoe;
 
 
 //nesta classe resume a estrategia por nivel e a posi��o da jogada calculada

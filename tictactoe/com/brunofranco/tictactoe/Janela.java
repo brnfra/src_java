@@ -1,4 +1,4 @@
-package com.brunofranco.tictactoe;
+package tictactoe.com.brunofranco.tictactoe;
 
 import javax.swing.*;
 import javax.swing.event.MenuKeyEvent;
