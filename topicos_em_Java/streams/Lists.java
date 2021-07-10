@@ -7,18 +7,14 @@ import java.util.*;
 
 public class Lists {
     public static void main(String[] args)throws IOException {
-        FileReader file = new FileReader("/home/devlab/Documents/Projects/git/src_java/collections/src/streams/inputs.txt");
+        FileReader file = new FileReader("~/Documents/Projects/git/src_java/collections/src/streams/inputs.txt");
         BufferedReader buf = new BufferedReader(file);
-       /* String entrada = "";
-        while(buf.ready()){
-            entrada=entrada.concat(buf.readLine()+" ");
-        }
-        StringTokenizer st = new StringTokenizer(entrada);
-        */
+       
         List<String> nomes = new ArrayList<>();
         while(buf.ready()){
             nomes.add(buf.readLine());
         }
+       
         System.out.println("Iniciod de posição: "+ nomes);
         Collections.sort(nomes);
         //modulo dos numeros?
