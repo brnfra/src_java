@@ -10,4 +10,12 @@ A primeira linha de entrada contém um inteiro N (N < 100) com a quantidade de c
     
 ### Saída
 
-A saída contém N linhas, cada uma representando uma lista de compra, sem os itens repetidos e em ordem alfabética. 
+A saída contém N linhas, cada uma representando uma lista de compra, sem os itens repetidos e em ordem alfabética.
+
+| Exemplo de Entrada | Exemplo de Saída |
+| --- | --- |
+| 2 |carne laranja picles suco|
+|carne laranja suco picles laranja picles |laranja pera|
+|laranja pera laranja pera pera |  
+
+
